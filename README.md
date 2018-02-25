@@ -1,5 +1,5 @@
-# FaceRecognitionPCA
-MATH295 Numerical Analysis Final Project Winter 2018
+# Face Recognition using PCA
+MATH295 Numerical Analysis Final Project Winter 2018 - by Huiji Ying and Yuhao Wan
 
 ## Dataset Source:
 - “The Database of Faces” (formerly “The ORL Database of Faces”)
