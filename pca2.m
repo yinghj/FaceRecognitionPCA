@@ -13,8 +13,8 @@ m = mean(data, 2);
 data = data - repmat(m, 1, N);
 
 % Compute the matrix Y where each column of Y has zero mean.
-% and YY' = the covariance matrix of X (C_X) = (1/(n-1))XX'.
-Y = data / sqrt(N-1);
+% and Y'Y = the covariance matrix of X (C_X) = (1/(n-1))XX'.
+Y = data' / sqrt(N-1);
 
 % If we calculate the SVD of Y, the columns of matrix V 
 % contain the eigenvectors of Y'Y, which is C_X.

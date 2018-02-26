@@ -15,7 +15,7 @@ eigVecs = PC;
 
 % Plot eigenvalues
 figure; plot(log(eigVals)); 
-title('Eigenvalues (log scale) in descending order');
+title('Eigenvalues (log) in descending order');
 
 disp('Press any key to display mean face.')
 pause;
