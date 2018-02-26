@@ -4,7 +4,7 @@ SAMPLE_CNT = 40;
 FACE_CNT = 10;
 h = 112; w = 92;
 K_knn = 1;
-var_to_keep = 0.75;
+var_to_keep = 0.8;
 
 faces = load_faces(IN_FOLDER, SAMPLE_CNT, FACE_CNT, h*w);
 y = zeros(SAMPLE_CNT*FACE_CNT, 1);
@@ -26,7 +26,8 @@ ytrain = y([1:(randomIdx-1), (randomIdx+1):numFaces]);
 Xtest = faces(:,randomIdx);
 ytest = y(randomIdx);
 
-figure; imshow(imresize(reshape(Xtest, h, w),3)); title('Face to be classified');
+figure; subplot(1, 2, 1); 
+imshow(imresize(reshape(Xtest, h, w),3)); title('Face to be classified');
 pause; 
 
 % compute a model
@@ -37,7 +38,7 @@ predicted = eigenfaces_predict(Xtrain, eigFaces, meanFace, ...
 
 % display prediction result
 face_img_idx = (predicted-1)*FACE_CNT+1;
-figure; imshow(imresize(reshape(faces(:, face_img_idx), h, w),3)); 
+subplot(1, 2, 2); imshow(imresize(reshape(faces(:, face_img_idx), h, w),3)); 
 title('Recognized as face');
 pause;
 fprintf(1,'predicted=%d,actual=%d\n', predicted, ytest)

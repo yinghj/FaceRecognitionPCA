@@ -71,64 +71,24 @@ for i=1:SAMPLE_CNT
 end
 
 
-disp('Press any key to reconstruct face 1-3.')
+disp('Press any key to reconstruct faces.')
 pause;
 
-figure;
-for i=1:3
-    subplot(3, 3, i*3-2); imagesc(reshape(person(:, i), h, w)); 
+for i=1:SAMPLE_CNT
+    figure;
+    subplot(1, 3, 1); imagesc(reshape(person(:, i), h, w)); 
     colormap(gray);
     title(strcat('Person ', string(i),' Face'));
     
     recon_low_ = eigenVecs_low*personW_low(:, i);
-    subplot(3, 3, i*3-1); imagesc(reshape(recon_low_(:,1), h, w)); 
+    subplot(1, 3, 2); imagesc(reshape(recon_low_(:,1), h, w)); 
     colormap(gray);
     title('Reconstructed by 10 eigenfaces');
     
     recon_ = eigenVecs*personW(:, i);
-    subplot(3, 3, i*3); imagesc(reshape(recon_(:,1), h, w)); 
+    subplot(1, 3, 3); imagesc(reshape(recon_(:,1), h, w)); 
     colormap(gray);
     title('Reconstructed 90% Variance');
-end
-
-disp('Press any key to reconstruct face 4-6.')
-pause;
-
-figure;
-for i=4:6
-    j = i-3;
-    subplot(3, 3, j*3-2); imagesc(reshape(person(:, i), h, w)); 
-    colormap(gray);
-    title(strcat('Person ', string(i),' Face'));
     
-    recon_low_ = eigenVecs_low*personW_low(:, i);
-    subplot(3, 3, j*3-1); imagesc(reshape(recon_low_(:,1), h, w)); 
-    colormap(gray);
-    title('Reconstructed by 10 eigenfaces');
-    
-    recon_ = eigenVecs*personW(:, i);
-    subplot(3, 3, j*3); imagesc(reshape(recon_(:,1), h, w)); 
-    colormap(gray);
-    title('Reconstructed 90% Variance');
-end
-
-disp('Press any key to reconstruct face 7-10.')
-pause;
-
-figure;
-for i=7:10
-    j = i-6;
-    subplot(4, 3, j*3-2); imagesc(reshape(person(:, i), h, w)); 
-    colormap(gray);
-    title(strcat('Person ', string(i),' Face'));
-    
-    recon_low_ = eigenVecs_low*personW_low(:, i);
-    subplot(4, 3, j*3-1); imagesc(reshape(recon_low_(:,1), h, w)); 
-    colormap(gray);
-    title('Reconstructed by 10 eigenfaces');
-    recon_ = eigenVecs*personW(:, i);
-    
-    subplot(4, 3, j*3); imagesc(reshape(recon_(:,1), h, w)); 
-    colormap(gray);
-    title('Reconstructed 90% Variance');
+    pause;
 end
